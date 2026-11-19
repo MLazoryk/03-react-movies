@@ -9,8 +9,7 @@ export interface MovieResponse {
 }
 
 export const fetchMovies = async (query: string): Promise<Movie[]> => {
-  // HARDCODED TOKEN FOR TESTING
-  const token = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMWY1NjUwMjcwOGEyMDlhZjFiZWRjZTcwMzNiNDVlNCIsIm5iZiI6MTc5NTEyOTEzNi4wNTIsInN1YiI6IjZhZmY3ZjMwNDFkNjJkMzQ3NWJhOTE5OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.25PcIEQvavOKl9TVlPQrzD5UXY7iiN_3rRSYmKfuW7I";
+  const token = import.meta.env.VITE_TMDB_TOKEN;
 
   const response = await axios.get<MovieResponse>(
     'https://api.themoviedb.org/3/search/movie',
